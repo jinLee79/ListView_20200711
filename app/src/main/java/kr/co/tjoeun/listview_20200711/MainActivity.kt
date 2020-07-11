@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        mAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
+        studentListView.adapter = mAdapter
         mStudentList.add(Student("조경진", "서울시 은평구", 1994))
         mStudentList.add(Student("김문기", "경기도 남양주시", 1994))
         mStudentList.add(Student("오윤도", "경기도 남양주시", 1997))
@@ -27,8 +29,7 @@ class MainActivity : AppCompatActivity() {
         mStudentList.add(Student("최현일", "경기도 남양주시", 1990))
         mStudentList.add(Student("황선혜", "서울시 금천구", 1996))
 
-        mAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
-        studentListView.adapter = mAdapter
+        mAdapter.notifyDataSetChanged()
 
         studentListView.setOnItemClickListener { parent, view, position, id ->
 //            position을 이용해서 클릭된 학생 받아오기
