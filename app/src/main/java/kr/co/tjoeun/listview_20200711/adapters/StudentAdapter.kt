@@ -12,6 +12,9 @@ import org.w3c.dom.Text
 
 class StudentAdapter(val mContext:Context, val resId:Int, val mList:List<Student>): ArrayAdapter<Student>(mContext, resId, mList) {
 
+//    LayoutInflater은 XML에 미리 정의해둔 틀을 실제 메모리에 올려주는 역할을 한다.
+//    즉, LayoutInflater는 XML에 정의된 Resource를 View 객체로 반환해주는 역할을 한다.
+//    우리가 매번 사용하는 onCreate() 메서드에 있는 setContentView(R.layout.activity_main) 또한 Inflater 역할을 한다.
     val inf = LayoutInflater.from(mContext)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
